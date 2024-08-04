@@ -1,0 +1,35 @@
+{
+    "name": "bec-syntax",
+    "displayName": "Bec Syntax Support",
+    "description": "Syntax support for Bec",
+    "version": "0.0.4",
+    "publisher": "Vasek-Harang",
+    "engines": {
+      "vscode": "^1.50.0"
+    },
+    "categories": [
+      "Programming Languages"
+    ],
+    "contributes": {
+      "languages": [
+        {
+          "id": "bec",
+          "aliases": ["Bec", "bec"],
+          "extensions": [".bec"],
+          "configuration": "./language-configuration.json",
+          "icon": {
+            "light": "./icons/becLight.png",
+            "dark": "./icons/becLight.png"
+          }
+        }
+      ],
+      "grammars": [
+        {
+          "language": "bec",
+          "scopeName": "source.bec",
+          "path": "./syntaxes/bec.tmLanguage.json"
+        }
+      ]
+    }
+  }
+  

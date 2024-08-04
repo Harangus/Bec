@@ -1,0 +1,57 @@
+{
+    "name": "Bec custom theme",
+    "type": "dark",
+    "colors": {
+      "editor.background": "#1e1e1e",
+      "editor.foreground": "#d4d4d4"
+    },
+    "tokenColors": [
+      {
+        "scope": "comment.line.double-slash.bec",
+        "settings": {
+          "foreground": "#6a9955",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "keyword.control.bec",
+        "settings": {
+          "foreground": "#569cd6",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "keyword.operator.bec",
+        "settings": {
+          "foreground": "#f723d3"
+        }
+      },
+      {
+        "scope": "string.quoted.double.bec",
+        "settings": {
+          "foreground": "#ce9178"
+        }
+      },
+      {
+        "scope": "constant.numeric.bec",
+        "settings": {
+          "foreground": "#b5cea8"
+        }
+      },
+      {
+        "scope": "keyword.variable.bec",
+        "settings": {
+            "foreground": "#22e345",
+            "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "keyword.special.bec",
+        "settings": {
+          "foreground": "#ae45ff",
+          "fontStyle": "bold"
+        }
+      }
+    ]
+  }
+  

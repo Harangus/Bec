@@ -1,0 +1,7 @@
+"themes": [
+        {
+          "label": "Bec custom theme",
+          "uiTheme": "vs-dark",
+          "path": "./themes/becTheme.json"
+        }
+      ]

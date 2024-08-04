@@ -1,0 +1,24 @@
+import <iostream>
+
+main {
+    int a equ 456
+    int b equ 234
+    int c equ a plus b
+
+    if a is b {
+        write "Hello there" endLine
+    }
+
+    try love {
+    }
+    catch you {
+
+    }
+
+    struct gay {
+        int a
+        float b
+        std::vector
+    };
+
+}

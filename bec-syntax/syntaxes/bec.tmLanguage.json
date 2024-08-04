@@ -1,0 +1,66 @@
+{
+  "scopeName": "source.bec",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.bec",
+      "match": "//.*$"
+    },
+    {
+      "name": "keyword.control.bec",
+      "match": "\\b(if|else|for|switch|foreach|loop|input|loopStep|do|while|ret|throw|import|def|elif|main|try|catch|ecatch|continue|finally|break|equ)\\b"
+    },
+    {
+      "name": "keyword.operator.bec",
+      "match": "\\b(is|plus|minus|write|case|add|take|endLine|readLine|exitCode|len|pop|push|size|AND|OR|ternary|read|mult|std|div|mod)\\b"
+    },
+    {
+      "name": "keyword.variable.bec",
+      "match": "\\b(int|string|vector|char|bool|var|float|num|word|double|DynArray|typename|prv|pub)\\b"
+    },
+    {
+      "name": "keyword.special.bec",
+      "match": "\\b(class|struct|randomNumber|assigned|enum|true|sort|false|scope|PI|const|define|in|toInt|toFloat|toDouble|stringToInt|wordToInt|wordToNum|stringToNum|wordToFloat|stringToFloat|wordToDouble|stringToDouble|toNum|template)\\b"
+    },
+    {
+      "name": "string.quoted.single.bec",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.bec",
+          "match": "\\\\."
+        },
+        {
+          "name": "string.quoted.double.inside.single.bec",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.bec",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "string.quoted.double.bec",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.bec",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "constant.numeric.bec",
+      "match": "\\b\\d+\\b"
+    },
+    {
+      "name": "punctuation.separator.bec",
+      "match": "[\\s.,<>();{}:*&\"']"
+    }
+  ]
+}
