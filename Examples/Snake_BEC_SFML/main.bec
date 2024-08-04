@@ -1,0 +1,202 @@
+import <SFML/Window.hpp>
+import <SFML/Graphics.hpp>
+import "snakePart.bec"
+
+main {
+    sf::RenderWindow window(sf::VideoMode(400, 400), "Snake Game in Bec")
+    window.setFramerateLimit(10)
+
+    sf::Color clearColor(0, 0, 0)
+    sf::Color foodColor(255, 0, 0)
+    sf::Color snakeColor(0, 255, 0)
+    sf::Color headColor(0, 0, 255)
+
+    word direction = "right"
+    bool foodCreated = false
+    num foodX
+    num foodY
+    num scoreCounter = 0
+
+    DynArray(SnakePart) snake;
+    initSnake(&snake)
+
+    while window.isOpen() {
+        eventChecker(&window)
+        //loop code here
+        window.clear(clearColor)
+
+        //this part takes care of food
+        createFood(&foodCreated, &foodX, &foodY)
+        drawFood(foodCreated, &foodX, &foodY, foodColor, &window)
+        
+        if checkFoodCollision(foodX, foodY, snake) {
+            foodCreated = false
+            appendNewPart(&snake, direction)
+            scoreCounter add 1
+        }
+
+        //this part takes care of snake
+        if checkSnakeBodyCollision(&snake) {
+            write "Collision with body" endLine
+            break
+        }
+        if checkBoundariesCollision(snake) {
+            write "Collision with boundaries" endLine
+            break
+        }
+        moveSnake(&snake, direction)
+        keyboardInput(&direction)
+        draw(&window, &snake, snakeColor, headColor)
+
+        window.display()
+    }
+    write "Tvoje skore je: " << scoreCounter endLine
+    exitCode
+}
+
+def eventChecker(sf::RenderWindow* window) {
+    sf::Event event
+    while window->pollEvent(event) {
+        if event.type is sf::Event::Closed {
+            window->close()
+        }
+    }
+}
+
+bool checkSnakeBodyCollision(DynArray(SnakePart)* snake) {
+    loop i, 0, snake->size - 1 {
+        if snake->back().x !is (*snake)[i].x {
+            continue
+        }
+        if snake->back().y !is (*snake)[i].y {
+            continue
+        }
+        ret 1
+    }
+    ret 0
+}
+
+def appendNewPart(DynArray(SnakePart)* snake, word direction) {
+    //get tail part
+    SnakePart tail
+    tail.x = (*snake)[0].x
+    tail.y = (*snake)[0].y
+    if direction is "right" {
+        tail.x take tail.scale
+    }
+    if direction is "left" {
+        tail.x add tail.scale
+    }
+    if direction is "up" {
+        tail.y take tail.scale
+    }
+    if direction is "down" {
+        tail.y add tail.scale
+    }
+    snake->insert(snake->begin(), tail)
+}
+
+bool checkFoodCollision(num foodX, num foodY, DynArray(SnakePart) snake) {
+    if snake.back().x !is foodX {
+        ret 0
+    }
+    if snake.back().y !is foodY {
+        ret 0
+    }
+    ret 1
+}
+
+bool checkBoundariesCollision(DynArray(SnakePart) snake) {
+    if snake.back().x < 0 || snake.back().x > 390 {
+        ret 1
+    }
+    if snake.back().y < 0 || snake.back().y > 390 {
+        ret 1
+    }
+    ret 0
+}
+
+def drawFood(bool foodCreated, num* foodX, num* foodY, sf::Color foodColor, sf::RenderWindow* window) {
+    if !foodCreated {
+        ret
+    }
+    sf::RectangleShape food(sf::Vector2f(10, 10))
+    food.setFillColor(foodColor)
+    food.setPosition(toFloat(*foodX), toFloat(*foodY))
+    window->draw(food)
+}
+
+def createFood(bool* foodCreated, num* foodX, num* foodY) {
+    if *foodCreated {
+        ret
+    }
+    //part of code where food is begin created
+    *foodX = randomNumber(0, 39) * 10
+    *foodY = randomNumber(0, 39) * 10
+    *foodCreated = true
+}
+
+def moveSnake(DynArray(SnakePart)* snake, word direction) {
+    SnakePart newpart
+    if direction is "right" {
+        snake->erase(snake->begin())
+        //Create new part
+        newpart.x = snake->back().x + newpart.scale
+        newpart.y = snake->back().y
+    }
+    if direction is "left" {
+        snake->erase(snake->begin())
+        //create new part
+        newpart.x = snake->back().x - newpart.scale
+        newpart.y = snake->back().y
+    }
+    if direction is "up" {
+        snake->erase(snake->begin())
+        //create new part
+        newpart.x = snake->back().x
+        newpart.y = snake->back().y - newpart.scale
+    }
+    if direction is "down" {
+        snake->erase(snake->begin())
+        //create new part
+        newpart.x = snake->back().x
+        newpart.y = snake->back().y + newpart.scale
+    }
+    snake->push(newpart)
+}
+
+def keyboardInput(word* direction) {
+    if sf::Keyboard::isKeyPressed(sf::Keyboard::W) {
+        *direction = "up"
+    }
+    if sf::Keyboard::isKeyPressed(sf::Keyboard::S) {
+        *direction = "down"
+    }
+    if sf::Keyboard::isKeyPressed(sf::Keyboard::D) {
+        *direction = "right"
+    }
+    if sf::Keyboard::isKeyPressed(sf::Keyboard::A) {
+        *direction = "left"
+    }
+}
+
+def initSnake(DynArray(SnakePart)* snake) {
+    loop i, 0, 3 {
+        SnakePart part
+        part.x = 180 + i * part.scale
+        part.y = 200
+        snake->push(part)
+    }
+}
+
+def draw(sf::RenderWindow* window, DynArray(SnakePart)* snake, sf::Color snakeColor, sf::Color headColor) {
+    foreach part in *snake {
+        sf::RectangleShape shape(sf::Vector2f(part.scale, part.scale))
+        shape.setFillColor(snakeColor)
+        shape.setPosition(part.x, part.y)
+        if part.x is snake->back().x AND part.y is snake->back().y {
+            shape.setFillColor(headColor)
+        }
+        window->draw(shape)   
+    }
+}

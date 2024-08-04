@@ -1,0 +1,7 @@
+class SnakePart {
+    pub:
+        float x
+        float y
+        float scale = 10
+        SnakePart() {}
+};
