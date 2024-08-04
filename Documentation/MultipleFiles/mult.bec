@@ -1,0 +1,8 @@
+//importing another bec file
+import "class.bec"
+
+main {
+    Person Joseph(34, "Joseph")
+    Joseph.writeData()
+    exitCode
+}

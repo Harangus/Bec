@@ -1,0 +1,14 @@
+main {
+    num a = 45
+
+    //switch is the same like in c++, but no brackets and semicolumns
+    switch a {
+        case 44:
+            write "A is 44" endLine
+            break
+        case 45:
+            write "A is 45" endLine
+            break
+    }
+    exitCode
+}

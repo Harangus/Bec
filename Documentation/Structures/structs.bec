@@ -1,0 +1,14 @@
+main {
+    struct Person {
+        num age
+        word name
+    };
+
+    Person Joseph
+    Joseph.age = 45
+    Joseph.name = "Joseph"
+
+    write Joseph.age endLine
+    write Joseph.name endLine
+    exitCode
+}

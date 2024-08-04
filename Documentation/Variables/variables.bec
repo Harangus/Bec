@@ -1,0 +1,27 @@
+main {
+    //creates variable a with assigned number 45
+    num a = 45
+
+    //creates variable with assigned floating point number 45.0
+    float b = 45.0
+
+    //creates variable with assigned word Hello
+    word c = "Hello"
+    //getting length of c to variable
+    num f = c.len
+
+    //in word you can also save sentences, it is the same as c++ std::string
+    word d = "Hello world how are you"
+
+    //creates variable with value 45 where the type of value is automaticly detected
+    var e = 45
+
+    //printing all values
+    write a endLine
+    write b endLine
+    write c endLine
+    write d endLine
+    write e endLine
+
+    exitCode
+}

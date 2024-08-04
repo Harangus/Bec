@@ -1,0 +1,8 @@
+In bec you can use all c++ operators, but there are some that are renamed for simplicity for beginners
+-> is - equality check, condition example: if a is b 
+-> !is - nonequality check, condition example: if a !is b
+-> other - >, <, >=, <=, thats just classic
+-> AND - and operator, same as && in c++
+-> OR - or operator, same as || in c++
+-> add - adds value to value, same as += in c++.
+-> take - takes value from value, same as -= in c++

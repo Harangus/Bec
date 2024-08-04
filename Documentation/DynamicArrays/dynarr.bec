@@ -1,0 +1,19 @@
+main {
+    //Dynamic arrays are arrays that are expandable, they do not have fixed size
+    //Bec DynArray is equivalent to std::vector<> in c++
+    DynArray(num) arr = {34, 32, 11, 45, 4};
+    //saving array size to variable
+    num a = arr.size
+    //pushing new value to array
+    arr.push(1024)
+    arr.push(2048)
+
+    //removing last element from array
+    arr.pop()
+
+    //Writing all elements of array (check loops folder)
+    foreach i in arr {
+        write i endLine
+    }
+    exitCode
+}

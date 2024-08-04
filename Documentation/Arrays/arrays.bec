@@ -1,0 +1,17 @@
+main {
+    //Create array of numbers
+    num arr[] = {34, 33, 11, 54, 32, 65};
+    //notice that we had to use semicolumn, that is because bec is beign translated directly to c++ and is automatily adding the semicolumns, but is ignoring this } character
+    //so when definition ends with } and needs semicolumn, thats the only time in bec where we need to use them
+
+    //Create yet not filled array of strings
+    word words[10]
+
+    //changing values in arrays just like in c++
+    arr[0] = 3
+    words[0] = "Hi there"
+
+    write arr[0] endLine
+    write words[0] endLine
+    exitCode
+}

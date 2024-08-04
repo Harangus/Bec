@@ -1,0 +1,23 @@
+main {
+    //if statements work just like in c++, but guess what? No brackets!
+    num a = 22
+    num b = 33
+
+    if a is b {
+        write "A is the same as b" endLine
+    } else {
+        write "A is not the same as b" endLine
+    }
+    //Noticed the is operator? Check operators folder
+
+    //else if? Why not elif
+    if a > b {
+        write "A is greater than b" endLine
+    } elif a < b {
+        write "A is smaller than b" endLine
+    } else {
+        write "A is the same as b" endLine
+    }
+
+    exitCode
+}

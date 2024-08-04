@@ -1,0 +1,17 @@
+main {
+    sayHello()
+    num a = giveMeFive()
+    write "A is " << a endLine
+    exitCode
+}
+
+//in bec, functions are defined with keyword def
+//functions are declared under the main block
+def sayHello() {
+    write "Hello there" endLine
+}
+
+//function with return value
+num giveMeFive() {
+    ret 5
+}

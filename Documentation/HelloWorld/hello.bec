@@ -1,0 +1,10 @@
+main {
+    write "Hello world" endLine
+    exitCode
+}
+
+//Explanation:
+//  main block  -> the entry block of the program, shortened int main(int argc, char* argv[])
+//  write       -> writes text to the console, same as std::cout << but easier 
+//  endLine     -> ends line of console text, same as << std::endl but easier
+//  exitCode    -> tells the main block to exit the code, same as return 0

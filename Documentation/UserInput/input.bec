@@ -1,0 +1,10 @@
+main {
+    //NOTE -- check type conversion folder
+    //to get user input, you can use the input function
+    word name = input("Enter your name: ")
+
+    //input function always returns word, so what if you want number for example? Just convert the input
+    num age = wordToNum(input("Enter your age: "))
+    
+    exitCode
+}

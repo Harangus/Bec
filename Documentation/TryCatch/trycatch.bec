@@ -1,0 +1,18 @@
+main {
+    //This is code from UserInput folder, lets make it better using try catch
+    word name = input("Enter your name: ")
+
+    //input function always returns word, so what if you want number for example? Just convert the input
+    //But wait! What if the user doesnt give me a number? 
+    num age
+
+    try {
+        age = wordToNum(input("Enter your age: "))
+    } ecatch {
+        write "Wrong input" endLine
+    }
+
+
+    //ecatch is shortened catch (std::Exception& e)
+    exitCode
+}

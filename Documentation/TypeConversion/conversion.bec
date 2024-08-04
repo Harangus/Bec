@@ -1,0 +1,11 @@
+main {
+    //in bec, you can use static_cast just like in c++, but there are some simpler ways
+    num a = toNum(45.34)
+    float b = toFloat(11)
+
+    //if you want to convert word value to num, use wordTo---
+    num c = wordToNum("342")
+    float d = wordToFloat("343.3432")
+
+    exitCode
+}

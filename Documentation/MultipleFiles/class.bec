@@ -1,0 +1,22 @@
+//creating class Person with constructor
+class Person {
+    //pub tells that the data are public
+    pub:
+        num age
+        word name
+        Person(num age, word name) {
+            this->age = age
+            this->name = name
+        }
+
+        //class function definition
+        def writeData()
+};
+
+//Declaration of class Person function writeData
+//keyword assigned tells the compiler that the function is assigned to class 
+//Person scope tells the compiler to which class
+assigned def Person scope writeData() {
+    write name endLine
+    write age endLine
+}

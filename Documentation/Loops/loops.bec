@@ -1,0 +1,51 @@
+main {
+    //classic for loop in implemented in bec with keyword loop
+    //loop syntax : loop variable, start, end
+    //this block will execute ten times
+    write "Normal loop ---------------------------------" endLine
+    loop i, 0, 10 {
+        write i endLine
+    }
+
+    //there is also loopStep, where is addition argument at the end, which sets the increment vaule
+    //this block will execute five times, because the step is set to 2
+    write "Loop step --------------------------------------" endLine
+    loopStep i, 0, 10, 2 {
+        write i endLine
+    }
+
+    //you can also use clasic words like break and continue
+    //this loop will not print value 2 and stop at value 15
+    write "Loop with continue and break ----------------------" endLine
+    loop i, 0, 20 {
+        if i is 2 {
+            continue
+        }
+        if i is 15 {
+            break
+        }
+        write i endLine
+    }
+
+    //WHILE LOOP
+    //this loop will execute ten times
+    write "While loop --------------------------------------" endLine
+    num a = 0
+    while a < 10 {
+        write a endLine
+        a add 1
+    }
+
+    //FOREACH LOOP
+    write "Foreach loop -------------------------------------" endLine
+    //to use foreach we need some array, so here it is:
+    num arr[] = {34, 23, 11, 45, 656, 2354, 453, 45};
+    //using the foreach
+    //writes every element of array to the console
+    foreach i in arr {
+        write i endLine
+    }
+
+
+    exitCode
+}
