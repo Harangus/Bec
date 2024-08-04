@@ -1,0 +1,19 @@
+if you are on linux -> in your terminal
+    bec -o out main.bec
+    -out is the name of output program
+    -main.bec is the name of input code
+
+if you are on windows -> in your terminal
+    bec.exe -o out main.bec
+
+if you want to see output c++ file
+    bec -o out main.bec showCpp
+
+ADIDITONAL COMMANDS
+    bec info
+    - prints info about bec
+    bec version
+    - prints your bec version
+
+NOTE:
+    The c++ file will be always generated if you have error in your code for troubleshooting
